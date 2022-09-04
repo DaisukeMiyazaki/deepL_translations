@@ -13,6 +13,8 @@ inputs:
     description: Secret GitHub API token to use for making API requests.
     default: ${{ github.token }}
     required: true
+    ACTIONS_RUNNER_DEBUG: true
+  
 
 #outputs:
 #  result:

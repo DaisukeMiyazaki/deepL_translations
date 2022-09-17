@@ -7,9 +7,7 @@ try {
   const API_KEY = core.getInput('DEEPL_TOKEN');
   const API_URL = 'https://api-free.deepl.com/v2/translate';
 
-  let content = encodeURI(
-    'auth_key=' + API_KEY + '&text=' + ms + '&source_lang=JA&target_lang=EN',
-  );
+  let content = encodeURI('auth_key=' + API_KEY + '&text=' + ms + '&source_lang=JA&target_lang=EN');
   let url = API_URL + '?' + content;
 
   fetch(url)

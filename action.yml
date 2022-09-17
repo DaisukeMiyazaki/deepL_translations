@@ -1,7 +1,6 @@
 # https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions
 name: 'Action JS Template'
 description: 'A simple javascript template for rapid development of GitHub actions.'
-author: 'xrkffgg'
 
 branding:
   # https://actions-cool.github.io/github-action-branding/

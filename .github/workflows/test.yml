@@ -2,7 +2,7 @@ name: CI
 
 on:
   issue_comment:
-    types: [created, deleted, edited]
+    types: [created, edited]
 
 jobs:
   setup:

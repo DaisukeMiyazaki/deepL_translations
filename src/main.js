@@ -8,7 +8,7 @@ try {
   const API_URL = 'https://api-free.deepl.com/v2/translate';
 
   let content = encodeURI(
-    'auth_key=' + API_KEY + '&text=' + entext + '&source_lang=EN&target_lang=JA',
+    'auth_key=' + API_KEY + '&text=' + ms + '&source_lang=JA&target_lang=EN',
   );
   let url = API_URL + '?' + content;
 

@@ -4,6 +4,27 @@ const github = require('@actions/github');
 
 try {
   const ms = core.getInput('input_testing');
+  const API_KEY = 'API KEYを入力';
+  const API_URL = 'https://api-free.deepl.com/v2/translate';
+
+  let content = encodeURI('auth_key=' + API_KEY + '&text=' + entext + '&source_lang=EN&target_lang=JA');
+  let url = API_URL + '?' + content;
+
+  fetch(url)
+    .then(function(response) {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error("Could not reach the API: " + response.statusText);
+        }
+    }).then(function(data) {
+        translated_result = data["translations"][0]["text"];
+        core.setOutput("output_testing_success", translated_result);
+    }).catch(function(error) {
+        error_message = error.message;
+        core.setOutput("output_testing_error", error_message);
+    });
+
   console.log('Input: ', ms);
   core.debug('Inside try block');
   const time = new Date().toTimeString();

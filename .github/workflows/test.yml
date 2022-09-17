@@ -25,6 +25,8 @@ jobs:
       - name: module running action step
         uses: ./ # this is for private repo
         id: input_testing
+        with:
+          input_testing: ${{ github.event.comment.body }}
         # uses: DaisukeMiyazaki/deepL_translations@main # disable this for private repo
 
       - name: Get the output time

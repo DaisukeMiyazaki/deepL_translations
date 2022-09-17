@@ -22,8 +22,6 @@ jobs:
       - name: module running action step
         id: input_testing
         uses: DaisukeMiyazaki/deepL_translations@1-test
-        # with:
-        #   input_testing: "Daisuke Miyazaki"
 
       - name: Get the output time
         run: echo "the time was ${{ steps.input_testing.outputs.time }}"

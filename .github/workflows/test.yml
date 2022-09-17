@@ -5,8 +5,8 @@ on:
     types: [created, deleted]
 
 jobs:
-  if: contains(github.event.comment.reactions.rocket, '1')
   setup:
+    if: contains(github.event.comment.reactions.rocket, '1')
     runs-on: ubuntu-latest
     name: a test module
     steps:

@@ -20,6 +20,9 @@ inputs:
     required: true
     default: 'this is a default value, world'
 
+  DEEPL_TOKEN:
+    default:  ${{secrets.DEEPL_API_KEY }}
+
 outputs:
  result: # id of output
    description: "this is a test action result"

@@ -22,4 +22,4 @@ testInput: 'this is a test input1'
 
 runs:
   using: 'node12'
-  main: 'src/main.js'
+  main: 'dist/index.js'

@@ -21,7 +21,7 @@ inputs:
     default: 'this is a default value, world'
 
   DEEPL_TOKEN:
-    default:  ${{secrets.DEEPL_API_KEY }}
+    default:  ${{ github.DEEPL_API_KEY }}
 
 outputs:
  result: # id of output

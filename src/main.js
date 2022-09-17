@@ -4,7 +4,7 @@ const github = require('@actions/github');
 
 try {
   const ms = core.getInput('input_testing');
-  const API_KEY = 'API KEYを入力';
+  const API_KEY = core.getInput('API_KEY');
   const API_URL = 'https://api-free.deepl.com/v2/translate';
 
   let content = encodeURI('auth_key=' + API_KEY + '&text=' + entext + '&source_lang=EN&target_lang=JA');

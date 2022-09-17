@@ -14,6 +14,8 @@ inputs:
     required: true
     ACTIONS_RUNNER_DEBUG: true
     ACTIONS_STEP_DEBUG: true
+    DEEPL_API_KEY: ${{ github.token.DEEPL_API_KEY }}
+
 
   input_testing: # id of input
     required: true

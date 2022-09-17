@@ -6,7 +6,7 @@ on:
 
 jobs:
   setup:
-    if: contains(github.event.comment.reactions.rocket, '1')
+    if: contains(github.event.comment.reactions.rocket, 1)
     runs-on: ubuntu-latest
     name: a test module
     steps:
@@ -15,7 +15,7 @@ jobs:
 
       - name: install
         run: yarn install
-      
+
       - name: format-check
         run: yarn format-check
 
@@ -32,4 +32,4 @@ jobs:
       - name: read comment body
         run: |
           echo ${{ github.event.comment.body }}
-          echo ${{ github.event.changes.body.from }} 
+          echo ${{ github.event.changes.body.from }}

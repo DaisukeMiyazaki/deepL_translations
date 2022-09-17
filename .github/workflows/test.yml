@@ -11,7 +11,7 @@ jobs:
     name: a test module
     steps:
       - name: checkout
-        uses: actions/checkout@main
+        uses: actions/checkout@v3
 
       - name: install
         run: yarn install
@@ -23,6 +23,7 @@ jobs:
         run: yarn package
 
       - name: module running action step
+        uses: ./ # this is for private repo
         id: input_testing
         uses: DaisukeMiyazaki/deepL_translations@main
 

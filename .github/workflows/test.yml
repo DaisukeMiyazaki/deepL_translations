@@ -5,6 +5,7 @@ on:
     types: [created, deleted]
 
 jobs:
+  if: github.event.comment.reactions.rocket == 1
   setup:
     runs-on: ubuntu-latest
     name: a test module
@@ -27,3 +28,8 @@ jobs:
 
       - name: Get the output time
         run: echo "the time was ${{ steps.input_testing.outputs.time }}"
+
+      - name: read comment body
+        run: |
+          echo ${{ github.event.comment.body }}
+          echo ${{ github.event.changes.body.from }} 

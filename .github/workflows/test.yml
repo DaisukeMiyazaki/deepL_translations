@@ -1,6 +1,8 @@
 name: CI
 
-on: [push]
+on:
+  issue_comment:
+    types: [created, deleted]
 
 jobs:
   setup:

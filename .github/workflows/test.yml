@@ -6,30 +6,30 @@ on:
 
 jobs:
   if: github.event.comment.reactions.rocket == 1
-  setup:
-    runs-on: ubuntu-latest
-    name: a test module
-    steps:
-      - name: checkout
-        uses: actions/checkout@main
+    setup:
+      runs-on: ubuntu-latest
+      name: a test module
+      steps:
+        - name: checkout
+          uses: actions/checkout@main
 
-      - name: install
-        run: yarn install
-      
-      - name: format-check
-        run: yarn format-check
+        - name: install
+          run: yarn install
+        
+        - name: format-check
+          run: yarn format-check
 
-      - name: package
-        run: yarn package
+        - name: package
+          run: yarn package
 
-      - name: module running action step
-        id: input_testing
-        uses: DaisukeMiyazaki/deepL_translations@main
+        - name: module running action step
+          id: input_testing
+          uses: DaisukeMiyazaki/deepL_translations@main
 
-      - name: Get the output time
-        run: echo "the time was ${{ steps.input_testing.outputs.time }}"
+        - name: Get the output time
+          run: echo "the time was ${{ steps.input_testing.outputs.time }}"
 
-      - name: read comment body
-        run: |
-          echo ${{ github.event.comment.body }}
-          echo ${{ github.event.changes.body.from }} 
+        - name: read comment body
+          run: |
+            echo ${{ github.event.comment.body }}
+            echo ${{ github.event.changes.body.from }} 

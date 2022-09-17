@@ -25,7 +25,7 @@ jobs:
       - name: module running action step
         uses: ./ # this is for private repo
         id: input_testing
-        uses: DaisukeMiyazaki/deepL_translations@main
+        # uses: DaisukeMiyazaki/deepL_translations@main # disable this for private repo
 
       - name: Get the output time
         run: echo "the time was ${{ steps.input_testing.outputs.time }}"

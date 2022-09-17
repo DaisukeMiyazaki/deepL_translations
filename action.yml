@@ -15,10 +15,10 @@ inputs:
     ACTIONS_RUNNER_DEBUG: true
     ACTIONS_STEP_DEBUG: true
 
-    input_testing: # id of input
-      testInput: 'this is a test input2, nested'
-      required: true
-      default: 'this is a default value, world'
+  input_testing: # id of input
+    testInput: 'this is a test input2, nested'
+    required: true
+    default: 'this is a default value, world'
 
 outputs:
  result: # id of output

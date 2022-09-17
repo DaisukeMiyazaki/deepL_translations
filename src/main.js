@@ -1,22 +1,34 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-const { Octokit } = require('@octokit/rest');
+// const { Octokit } = require('@octokit/rest');
 
-async function run() {
-  try {
-    const ms = core.getInput('milliseconds');
-    core.debug(`Waiting ${ms} milliseconds ...`); // debug is only output if you set the secret `ACTIONS_RUNNER_DEBUG` to true
+try {
+  const ms = core.getInput('input_testing');
+  console.log('Input: ', ms);
+  core.debug('Inside try block');
+  const time = new Date().toTimeString();
+  core.setOutput('time', time);
 
-    core.debug(new Date().toTimeString());
-    await new Promise(resolve => {
-      setTimeout(() => resolve('done!'), 10);
-    });
-    core.debug(new Date().toTimeString());
+  // Get the JSON webhook payload for the event that triggered the workflow
+  const payload = JSON.stringify(github.context.payload, undefined, 2);
+  console.log(`The event payload: ${payload}`);
 
-    core.setOutput('time', new Date().toTimeString());
-  } catch (error) {
-    core.setFailed(error.message);
+  if (!ms) {
+    core.warning('testInput was not set');
   }
-}
 
-run();
+  if (core.isDebug()) {
+    // curl -v https://github.com
+    core.warning('isDebug is true');
+  } else {
+    // curl https://github.com
+    core.warning('isDebug is false');
+  }
+
+  // Do stuff
+  core.info('Output to the actions build log');
+
+  core.notice('This is a message that will also emit an annotation');
+} catch (error) {
+  core.setFailed(error.message);
+}

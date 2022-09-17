@@ -1,10 +1,11 @@
 name: CI
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   setup:
     runs-on: ubuntu-latest
+    name: a test module
     steps:
       - name: checkout
         uses: actions/checkout@main
@@ -17,3 +18,10 @@ jobs:
 
       - name: package
         run: yarn package
+
+      - name: module running action step
+        id: input_testing
+        uses: DaisukeMiyazaki/deepL_translations@1-test
+
+      - name: Get the output time
+        run: echo "the time was ${{ steps.input_testing.outputs.time }}"

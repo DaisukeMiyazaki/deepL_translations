@@ -1,7 +1,6 @@
 # https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions
 name: 'Action JS Template'
 description: 'A simple javascript template for rapid development of GitHub actions.'
-author: 'xrkffgg'
 
 branding:
   # https://actions-cool.github.io/github-action-branding/
@@ -14,11 +13,15 @@ inputs:
     default: ${{ github.token }}
     required: true
     ACTIONS_RUNNER_DEBUG: true
-  
+    ACTIONS_STEP_DEBUG: true
 
-#outputs:
-#  result:
-#    description: action result
+  input_testing: # id of input
+    required: true
+    default: 'this is a default value, world'
+
+outputs:
+ result: # id of output
+   description: "this is a test action result"
 
 runs:
   using: 'node12'

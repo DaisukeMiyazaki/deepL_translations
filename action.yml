@@ -13,6 +13,7 @@ inputs:
     default: ${{ github.token }}
     required: true
     ACTIONS_RUNNER_DEBUG: true
+    ACTIONS_STEP_DEBUG: true
     testInput: 'this is a test input2, nested'
 testInput: 'this is a test input1'
 

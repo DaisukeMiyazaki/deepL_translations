@@ -21,7 +21,7 @@ jobs:
 
       - name: module running action step
         id: input_testing
-        uses: DaisukeMiyazaki/deepL_translation
+        uses: DaisukeMiyazaki/deepL_translations
         with:
           input_testing: "Daisuke Miyazaki"
 

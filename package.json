@@ -14,7 +14,6 @@
     "url": "https://github.com/actions-cool/action-js-template",
     "branch": "main"
   },
-  "author": "xrkffgg",
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.2.6",

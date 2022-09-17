@@ -14,12 +14,15 @@ inputs:
     required: true
     ACTIONS_RUNNER_DEBUG: true
     ACTIONS_STEP_DEBUG: true
-    testInput: 'this is a test input2, nested'
-testInput: 'this is a test input1'
 
-#outputs:
-#  result:
-#    description: action result
+    input_testing: # id of input
+      testInput: 'this is a test input2, nested'
+      required: true
+      default: 'this is a default value, world'
+
+outputs:
+ result: # id of output
+   description: "this is a test action result"
 
 runs:
   using: 'node12'

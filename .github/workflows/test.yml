@@ -5,6 +5,7 @@ on: [push]
 jobs:
   setup:
     runs-on: ubuntu-latest
+    name: a test module
     steps:
       - name: checkout
         uses: actions/checkout@main
@@ -17,3 +18,12 @@ jobs:
 
       - name: package
         run: yarn package
+
+      - name: module running action step
+        id: input_testing
+        uses: DaisukeMiyazaki/deepL_translation
+        with:
+          input_testing: "Daisuke Miyazaki"
+
+      - name: Get the output time
+        run: echo "the time was $ {{ steps.input_testing.outputs.time }}"

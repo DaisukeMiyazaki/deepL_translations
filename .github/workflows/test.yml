@@ -1,6 +1,8 @@
 name: CI
 
-on: [push]
+on:
+  issue_comment:
+    types: [created, deleted]
 
 jobs:
   setup:
@@ -21,7 +23,7 @@ jobs:
 
       - name: module running action step
         id: input_testing
-        uses: DaisukeMiyazaki/deepL_translations@1-test
+        uses: DaisukeMiyazaki/deepL_translations@main
 
       - name: Get the output time
         run: echo "the time was ${{ steps.input_testing.outputs.time }}"

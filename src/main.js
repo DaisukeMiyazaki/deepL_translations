@@ -4,6 +4,7 @@ const github = require('@actions/github');
 
 try {
   const ms = core.getInput('input_testing');
+  console.log('Input: ', ms);
   core.debug('Inside try block');
   const time = new Date().toTimeString();
   core.setOutput('time', time);

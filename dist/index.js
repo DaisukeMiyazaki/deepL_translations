@@ -10398,6 +10398,7 @@ const github = __nccwpck_require__(5438);
 
 try {
   const ms = core.getInput('input_testing');
+  console.log('Input: ', ms);
   core.debug('Inside try block');
   const time = new Date().toTimeString();
   core.setOutput('time', time);

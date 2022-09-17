@@ -26,4 +26,4 @@ jobs:
           input_testing: "Daisuke Miyazaki"
 
       - name: Get the output time
-        run: echo "the time was $ {{ steps.input_testing.outputs.time }}"
+        run: echo "the time was ${{ steps.input_testing.outputs.time }}"

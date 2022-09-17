@@ -30,7 +30,9 @@ jobs:
         # uses: DaisukeMiyazaki/deepL_translations@main # disable this for private repo
 
       - name: Get the output time
-        run: echo "the time was ${{ steps.input_testing.outputs.time }}"
+        run: |
+          echo "the time was ${{ steps.input_testing.outputs.time }}"
+          echo "the translated result was ${{ steps.input_testing.outputs.success }}"
 
       - name: read comment body
         run: |

@@ -9,8 +9,8 @@ try {
   const translator = new deepl.Translator(API_KEY);
 
   (async () => {
-    const result = translator.translateText(ms, 'JA', 'en-US');
-    console.log(result.text);
+    const result = translator.translateText(ms, 'ja', 'en-US');
+    console.log(result);
   })();
 
   console.log('Input: ', ms);

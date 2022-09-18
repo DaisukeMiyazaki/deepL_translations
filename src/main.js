@@ -9,7 +9,7 @@ try {
   const translator = new deepl.Translator(API_KEY);
 
   (async () => {
-    const result = translator.translateText(ms, 'ja', 'en-US');
+    const result = await translator.translateText(ms, 'ja', 'en-US');
     console.log(result);
   })();
 

@@ -11,10 +11,10 @@ try {
   (async () => {
     const result = await translator.translateText(ms, 'ja', 'en-US');
     console.log(result.text);
+    core.setOutput('output_testing_success', result.text);
   })();
 
   console.log('Input: ', ms);
-  core.setOutput('output_testing_success', result.text);
   core.debug('Inside try block');
   const time = new Date().toTimeString();
   core.setOutput('time', time);

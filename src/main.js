@@ -8,27 +8,10 @@ try {
   const API_KEY = process.env.DEEPL_API_KEY;
   const translator = new deepl.Translator(API_KEY);
 
-  // let content = encodeURI('auth_key=' + API_KEY + '&text=' + ms + '&source_lang=JA&target_lang=EN');
-  // let url = API_URL + '?' + content;
-
-  // fetch(url)
-  //   .then(function (response) {
-  //     if (response.ok) {
-  //       return response.json();
-  //     } else {
-  //       throw new Error('Could not reach the API: ' + response.statusText);
-  //     }
-  //   })
-  //   .then(function (data) {
-  //     translated_result = data['translations'][0]['text'];
-  //     core.setOutput('output_testing_success', translated_result);
-  //   })
-  //   .catch(function (error) {
-  //     error_message = error.message;
-  //     core.setOutput('output_testing_error', error_message);
-  //   });
-
-  const result = translator.translateText(ms, 'JA', 'EN');
+  (async () => {
+    const result = translator.translateText(ms, 'JA', 'en-US');
+    console.log(result.text);
+  })();
 
   console.log('Input: ', ms);
   core.setOutput('output_testing_success', result);

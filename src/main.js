@@ -5,7 +5,7 @@ const deepl = require('deepl-node');
 
 try {
   const ms = core.getInput('input_testing');
-  const API_KEY = core.getInput('DEEPL_TOKEN');
+  const API_KEY = process.env.DEEPL_API_KEY;
   const translator = new deepl.Translator(API_KEY);
 
   // let content = encodeURI('auth_key=' + API_KEY + '&text=' + ms + '&source_lang=JA&target_lang=EN');

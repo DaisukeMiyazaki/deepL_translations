@@ -34,7 +34,7 @@ jobs:
       - name: Get the output time
         run: |
           echo "the time was ${{ steps.input_testing.outputs.time }}"
-          echo "the translated result was ${{ steps.input_testing.outputs.success }}"
+          echo "the translated result was ${{ steps.input_testing.outputs.output_testing_success }}"
 
       - name: read comment body
         run: |
@@ -50,5 +50,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: "this is a test comment inserting to wherever"
+              body: ${{ steps.input_testing.outputs.output_testing_success }}
             })

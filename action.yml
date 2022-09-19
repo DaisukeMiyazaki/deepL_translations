@@ -13,7 +13,7 @@ inputs:
     default: ${{ github.token }}
     required: true
     ACTIONS_RUNNER_DEBUG: true
-    # ACTIONS_STEP_DEBUG: true
+    # ACTIONS_STEP_DEBUG: true # ACTIONS_STEP_DEBUG has to be set as env secret too to enable debugging mode
 
 
   deepL_input: # id of input

@@ -7,12 +7,12 @@ try {
   const translator = new deepl.Translator(API_KEY);
 
   // translating from japanese to english
-  core.notice('translating from japanese to english');
+  core.info('translating from japanese to english');
   (async () => {
     const result = await translator.translateText(ms, 'ja', 'en-US');
     core.setOutput('deepL_output_success', result.text);
   })();
-  core.notice('translation finished');
+  core.info('translation finished');
 
   // Get the JSON webhook payload for the event that triggered the workflow for debug
   // const payload = JSON.stringify(github.context.payload, undefined, 2);

@@ -10397,7 +10397,7 @@ const github = __nccwpck_require__(5438);
 // const { Octokit } = require('@octokit/rest');
 
 try {
-  const ms = core.getInput('input_testing');
+  const ms = core.getInput('deepL_input');
   console.log('Input: ', ms);
   core.debug('Inside try block');
   const time = new Date().toTimeString();

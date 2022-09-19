@@ -13,16 +13,16 @@ inputs:
     default: ${{ github.token }}
     required: true
     ACTIONS_RUNNER_DEBUG: true
-    ACTIONS_STEP_DEBUG: true
+    # ACTIONS_STEP_DEBUG: true
 
 
-  input_testing: # id of input
+  deepL_input: # id of input
     required: true
-    default: 'this is a default value, world'
+    default: 'default value'
 
 outputs:
  result: # id of output
-   description: "this is a test action result"
+   description: "output"
 
 runs:
   using: 'node12'

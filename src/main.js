@@ -1,44 +1,22 @@
 const core = require('@actions/core');
-const github = require('@actions/github');
-// const { Octokit } = require('@octokit/rest');
 const deepl = require('deepl-node');
 
 try {
-  const ms = core.getInput('input_testing');
+  const ms = core.getInput('deepL_input');
   const API_KEY = process.env.DEEPL_API_KEY;
   const translator = new deepl.Translator(API_KEY);
 
+  // translating from japanese to english
+  core.notice('translating from japanese to english');
   (async () => {
     const result = await translator.translateText(ms, 'ja', 'en-US');
-    console.log(result.text);
-    core.setOutput('output_testing_success', result.text);
+    core.setOutput('deepL_output_success', result.text);
   })();
+  core.notice('translation finished');
 
-  console.log('Input: ', ms);
-  core.debug('Inside try block');
-  const time = new Date().toTimeString();
-  core.setOutput('time', time);
-
-  // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2);
-  console.log(`The event payload: ${payload}`);
-
-  if (!ms) {
-    core.warning('testInput was not set');
-  }
-
-  if (core.isDebug()) {
-    // curl -v https://github.com
-    core.warning('isDebug is true');
-  } else {
-    // curl https://github.com
-    core.warning('isDebug is false');
-  }
-
-  // Do stuff
-  core.info('Output to the actions build log');
-
-  core.notice('This is a message that will also emit an annotation');
+  // Get the JSON webhook payload for the event that triggered the workflow for debug
+  // const payload = JSON.stringify(github.context.payload, undefined, 2);
+  // console.log(`The event payload: ${payload}`);
 } catch (error) {
   core.setFailed(error.message);
 }

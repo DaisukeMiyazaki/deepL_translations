@@ -2,13 +2,13 @@ name: CI
 
 on:
   issue_comment:
-    types: [created, edited]
+    types: [edited]
 
 jobs:
   setup:
     if: contains(github.event.comment.reactions.rocket, 1)
     runs-on: ubuntu-latest
-    name: a test module
+    name: deepl_tranlation integration
     steps:
       - name: checkout
         uses: actions/checkout@v3
@@ -22,24 +22,20 @@ jobs:
       - name: package
         run: yarn package
 
-      - name: module running action step
+      - name: module running step
         uses: ./ # this is for private repo
-        id: input_testing
+        id: deepL_input
         with:
-          input_testing: ${{ github.event.comment.body }}
+          deepL_input: ${{ github.event.comment.body }}
         env: 
           DEEPL_API_KEY: ${{ secrets.DEEPL_API_KEY }}
         # uses: DaisukeMiyazaki/deepL_translations@main # disable this for private repo
-
-      - name: Get the output time
-        run: |
-          echo "the time was ${{ steps.input_testing.outputs.time }}"
-          echo "the translated result was ${{ steps.input_testing.outputs.output_testing_success }}"
 
       - name: read comment body
         run: |
           echo ${{ github.event.comment.body }}
           echo ${{ github.event.changes.body.from }}
+          echo "the translated result was ${{ steps.deepL_input.outputs.deepL_output_success }}"
 
       - name: insert comment
         uses: actions/github-script@v3
@@ -50,5 +46,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: "${{ steps.input_testing.outputs.output_testing_success }}"
+              body: "auto_translated: ${{ steps.deepL_input.outputs.deepL_output_success }}"
             })

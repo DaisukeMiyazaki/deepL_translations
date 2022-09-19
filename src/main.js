@@ -1,6 +1,9 @@
 const core = require('@actions/core');
 const deepl = require('deepl-node');
 
+// deepl-node documentation link
+// https://github.com/DeepLcom/deepl-node
+
 try {
   const ms = core.getInput('deepL_input');
   const API_KEY = process.env.DEEPL_API_KEY;
